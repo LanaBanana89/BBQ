@@ -86,6 +86,7 @@ GEM
     nokogiri (1.8.2-x86-mingw32)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
+    pg (1.0.0-x86-mingw32)
     rack (2.0.5)
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
@@ -152,6 +153,7 @@ DEPENDENCIES
   byebug
   devise
   jquery-rails
+  pg
   rails (~> 5.1.6)
   sqlite3
   twitter-bootstrap-rails
