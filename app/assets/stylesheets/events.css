@@ -13,7 +13,6 @@
 .event-background {
   position: absolute;
   width: 100%;
-  height: 500px;
   z-index: -1;
 
   top: 0; bottom: 0;
