@@ -4,7 +4,7 @@
 <% if errors.any? %>
   <div id="error" class="alert alert-danger alert-dismissible">
 
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <button class="close" data-dismiss="alert" aria-label="Close">
       <span id="cross" aria-hidden="true">&times;</span>
     </button>
 
@@ -16,8 +16,14 @@
       <% errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
-    </ul>
-
-    
+    </ul>    
   </div>
+
+  <script>
+    $(fucntion(){
+        $('#cross').click(function(){
+           $('#error').hide();
+        });
+     })
+  </script>
 <% end %>
