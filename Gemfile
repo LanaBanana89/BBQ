@@ -9,6 +9,10 @@ gem 'rails', '~> 5.1.6'
 
 gem 'jquery-rails'
 
+gem 'devise'
+
+gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
+
 gem 'twitter-bootstrap-rails'
 
 gem 'uglifier', '>= 1.3.0'
