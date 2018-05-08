@@ -2,9 +2,14 @@
 <% errors = model.errors %>
 
 <% if errors.any? %>
-  <div class="alert alert-danger">
+  <div id="error" class="alert alert-danger alert-dismissible">
+
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span id="cross" aria-hidden="true">&times;</span>
+    </button>
+
     <div class="lead buffer-bottom">
-      В вашей форме <%= errors.count %> ошибок
+      В вашей форме <%= errors.count %> <%= sklonenie(errors.count, 'ошибка', 'ошибки', 'ошибок') %>
     </div>
 
     <ul>
@@ -12,5 +17,7 @@
         <li><%= message %></li>
       <% end %>
     </ul>
+
+    
   </div>
 <% end %>
