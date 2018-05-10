@@ -9,6 +9,8 @@ gem 'rails', '~> 5.1.6'
 
 gem 'jquery-rails'
 
+gem 'turbolinks'
+
 gem 'devise'
 
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
