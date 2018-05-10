@@ -12,6 +12,8 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 gem 'devise'
+gem 'devise-i18n'
+gem 'russian'
 
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 
