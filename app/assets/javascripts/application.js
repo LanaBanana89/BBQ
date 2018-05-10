@@ -11,10 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery_ujs
+//= require turbolinks
 //= require_tree .
-
-$(fucntion(){
-   $('#cross').click(function(){ 
-       $('#error').hide();
-   });
-})
+//= require twitter/bootstrap
