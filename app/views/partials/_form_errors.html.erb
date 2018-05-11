@@ -9,7 +9,7 @@
     </div>
 
     <div class="lead buffer-bottom">
-      В вашей форме <%= errors.count %> <%= sklonenie(errors.count, 'ошибка', 'ошибки', 'ошибок') %>
+      В вашей форме <%= errors.count %> <%= I18n.t :error, count: errors.count %>
     </div>
 
     <ul>
