@@ -19,12 +19,12 @@
           <div class="col-md-3">
             <div class="buffer-top">
               <%= link_to 'Изменить', edit_event_path(@event),
-                class: 'btn btn-primary' %>
+                class: 'btn btn-primary buffer-bottom' %>
             </div>
           </div>
           <div class="col-md-3">
             <div class="buffer-top">
-              <%= link_to 'Удалить', @event, method: :delete, class: 'btn btn-primary',
+              <%= link_to 'Удалить', @event, method: :delete, class: 'btn btn-danger buffer-bottom',
               data: { confirm: "Вы уверены?" } %>                
             </div>
           </div>
