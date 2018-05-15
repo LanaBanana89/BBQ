@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
       :account_update,
       keys: [:password, :password_confirmation, :current_password]
     )
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
 
   # Вспомогательный метод, возвращает true, если текущий залогиненный юзер
