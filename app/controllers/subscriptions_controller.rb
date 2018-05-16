@@ -5,18 +5,19 @@ class SubscriptionsController < ApplicationController
   # Задаем подписку, которую юзер хочет удалить
   before_action :set_subscription, only: [:destroy]
 
-
   def create
-    # Болванка для новой подписки
-    @new_subscription = @event.subscriptions.build(subscription_params)
-    @new_subscription.user = current_user
+      # Болванка для новой подписки
+      @new_subscription = @event.subscriptions.build(subscription_params)
+      @new_subscription.user = current_user
 
-    if @new_subscription.save
+    unless current_user_can_edit?(@event)
+      if @new_subscription.save
       # Если сохранилась успешно, редирект на страницу самого события
       redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
-    else
+      else
       # если ошибки — рендерим здесь же шаблон события
       render 'events/show', alert: I18n.t('controllers.subscriptions.error')
+      end
     end
   end
 
