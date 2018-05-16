@@ -15,20 +15,20 @@
           </div>
           
           <% if current_user_can_edit?(@event) %>
-          <div class="row">
-          <div class="col-md-3">
-            <div class="buffer-top">
+           <div class="row">
+            <div class="col-md-3">
+              <div class="buffer-top">
               <%= link_to 'Изменить', edit_event_path(@event),
                 class: 'btn btn-primary buffer-bottom' %>
+              </div>
             </div>
-          </div>
-          <div class="col-md-3">
-            <div class="buffer-top">
-              <%= link_to 'Удалить', @event, method: :delete, class: 'btn btn-danger buffer-bottom',
+            <div class="col-md-3">
+              <div class="buffer-top">
+                <%= link_to 'Удалить', @event, method: :delete, class: 'btn btn-danger buffer-bottom',
               data: { confirm: "Вы уверены?" } %>                
+              </div>
             </div>
-          </div>
-        </div>
+           </div>
           <% end %>
         </div>
       </div>
@@ -38,8 +38,36 @@
   <div class="row">
     <div class="col-md-8">
       <div class="event-comments buffer-top">
+        <%= render partial: 'comments/form',
+          locals: {comment: @new_comment || @event.comments.build} %>
+
         <div class="buffer-both">
-          <%= render partial: 'comments/comment', collection: @event.comments %>
+          <%= render partial: 'comments/comment',
+            collection: @event.comments.except(@new_comment) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="event-owner">
+        <h4>Зовет:</h4>
+        <p><%= render partial: 'users/user', object: @event.user %></p>
+      </div>
+      <div class="event-subscriptions">
+        <h4>Пойдут:</h4>
+        <div>
+          <p>
+          <%= render partial: 'subscriptions/subscription',
+            collection: @event.subscriptions.except(@new_subscription) %>
+          </p>
+        </div>
+      </div>
+      <div class="event-subscription-form">
+        <h4>Я пойду:</h4>
+        <div>
+          <%= render partial: 'subscriptions/form', locals: {
+            subscription: @new_subscription || @event.subscriptions.build
+          } %>
         </div>
       </div>
     </div>

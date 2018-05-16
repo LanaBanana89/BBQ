@@ -17,7 +17,12 @@ class ApplicationController < ActionController::Base
 
   # Вспомогательный метод, возвращает true, если текущий залогиненный юзер
   # может править указанное событие
-  def current_user_can_edit?(event)
-    user_signed_in? && event.user == current_user
+  def current_user_can_edit?(model)
+    # Если у модели есть юзер и он залогиненный, пробуем у модели взять .event и
+    # если он есть, проверяем его юзера на равенство current_user.
+    user_signed_in? && (
+      model.user == current_user ||
+      (model.try(:event).present? && model.event.user == current_user)
+    )
   end
 end

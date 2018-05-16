@@ -1,12 +1,19 @@
-class Comment < ApplicationRecord
+# (с) goodprogrammer.ru
+#
+# Модель Коммента
+class Comment < ActiveRecord::Base
   belongs_to :event
-  belongs_to :user
+  belongs_to :user, optional: true
 
-  validates :event, presence: true
+  validates  :event, presence: true
   validates :body, presence: true
 
-  validates :user_name, presence: true, unless: 'user_name.present?'
+  # поле должно быть, только если не выполняется user.present? (у объекта на задан юзер)
+  validates :user_name, presence: true, unless: 'user.present?'
 
+
+  # переопределяем метод, если есть юзер, выдаем его имя,
+  # если нет -- дергаем исходный переопределенный метод
   def user_name
     if user.present?
       user.name
