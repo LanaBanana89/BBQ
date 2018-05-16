@@ -16,7 +16,7 @@ class Subscription < ActiveRecord::Base
 
   # для данного event_id один email может использоваться только один раз (если нет юзера, анонимная подписка)
   validates :user_email, uniqueness: {scope: :event_id}, unless: 'user.present?'
-
+  validate :validate_email
   # переопределяем метод, если есть юзер, выдаем его имя,
   # если нет -- дергаем исходный переопределенный метод
   def user_name
@@ -35,5 +35,14 @@ class Subscription < ActiveRecord::Base
     else
       super
     end
+  end
+
+  private
+  # метод для проверки емейла анонимного пользователя на соответствие
+  # такого же емейла у зарегистрированного пользователя
+  def validate_email
+    errors.add(:email, "Пользователь с таким email уже зарегистрирован") if user_id.blank? &&
+                                                                            user_email.present? &&
+                                                                            User.where(email: user_email).present?
   end
 end

@@ -13,10 +13,10 @@ class SubscriptionsController < ApplicationController
     unless current_user_can_edit?(@event)
       if @new_subscription.save
       # Если сохранилась успешно, редирект на страницу самого события
-      redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
+        redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
       else
       # если ошибки — рендерим здесь же шаблон события
-      render 'events/show', alert: I18n.t('controllers.subscriptions.error')
+        render 'events/show', alert: I18n.t('controllers.subscriptions.error')
       end
     end
   end
@@ -34,6 +34,7 @@ class SubscriptionsController < ApplicationController
   end
 
   private
+
   def set_subscription
     @subscription = @event.subscriptions.find(params[:id])
   end
