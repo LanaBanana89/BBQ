@@ -9,6 +9,9 @@ gem 'rails', '~> 5.1.6'
 
 gem 'jquery-rails'
 
+gem 'carrierwave'
+gem 'rmagick'
+
 gem 'turbolinks'
 
 gem 'devise'
