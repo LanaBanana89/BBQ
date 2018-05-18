@@ -10,8 +10,9 @@ gem 'rails', '~> 5.1.6'
 gem 'jquery-rails'
 
 gem 'carrierwave'
-gem 'rmagick'
 gem 'fog-aws'
+gem 'fog'
+gem 'rmagick'
 
 gem 'turbolinks'
 
