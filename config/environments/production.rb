@@ -88,4 +88,28 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Базовый урл сайта, для генерации правильных ссылок в письмах
+  # ПРОПИСЫВАЙТЕ свой!
+  config.action_mailer.default_url_options = {host: 'lets-go-bbq.herokuapp.com'}
+
+  # Вываливать ли посетителю сайта ошибки при отправке писем
+  config.action_mailer.raise_delivery_errors = false
+
+  # Делать рассылку писем (если false — мэйлер только имитирует работу, реальных писем не уходит)
+  config.action_mailer.perform_deliveries = true
+
+  # отправка почты по протоколу SMTP
+  config.action_mailer.delivery_method = :smtp
+
+  # Настройки для Sendgrid
+  ActionMailer::Base.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :user_name      => ENV['SENDGRID_USERNAME'],
+    :password       => ENV['SENDGRID_PASSWORD'],
+    :domain         => 'heroku.com',
+    :enable_starttls_auto => true
+  }
 end
