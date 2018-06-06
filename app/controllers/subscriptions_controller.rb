@@ -12,6 +12,7 @@ class SubscriptionsController < ApplicationController
 
     unless current_user_can_edit?(@event)
       if @new_subscription.save
+        EventMailer.subscription(@event, @new_subscription).deliver_now
       # Если сохранилась успешно, редирект на страницу самого события
         redirect_to @event, notice: I18n.t('controllers.subscriptions.created')
       else
