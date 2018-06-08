@@ -12,7 +12,9 @@ gem 'jquery-rails'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'fog'
-gem 'rmagick'
+
+#gem 'rmagick'
+gem 'mini_magick'
 
 gem 'turbolinks'
 
