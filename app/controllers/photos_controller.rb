@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :destroy]
+
   # Для каждого действия нужно получить событие, к которому привязана фотография
   before_action :set_event, only: [:create, :destroy]
 

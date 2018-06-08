@@ -87,3 +87,14 @@ ru:
       event: 'Событие'
       datetime: 'Состоится'
       owner: 'Организатор'
+  
+  error:    
+    one: '1 ошибка'
+    few: '%{count} ошибки'
+    other: '%{count} ошибок'
+  
+  errors:
+    messages:
+      rmagick_processing_error: "не возможно сжать"   
+      rmagick_download_error: "Не получается загрузить"
+      extension_whitelist_error: "не является одним из следующих форматов: %{allowed_types}"      
