@@ -30,6 +30,9 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+#гем для гугл карт
+gem 'geocoder'
+
 group :production do
   gem 'pg'
 end

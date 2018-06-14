@@ -19,6 +19,9 @@ class Event < ActiveRecord::Base
   validates :address, presence: true
   validates :datetime, presence: true
 
+  geocoded_by :address
+  after_validation :geocode
+
   def visitors
     (subscribers + [user]).uniq
   end

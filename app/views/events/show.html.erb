@@ -33,9 +33,8 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="row">
+  </div>  
+  <div class="row">    
     <div class="col-md-8">
       <div class="event-photos">
         <%# Выводим все фотографии события %>
@@ -84,6 +83,11 @@
           </div>
         </div>
       <% end %>
+      <!-- прикручиваем гугл карты -->
+      <iframe width="100%" height="250" frameborder="0" style="border:0"
+        src="https://www.google.ru/maps/embed/v1/place?key=<%=Rails.application.secrets.secret_key_map%>&q=<%=@event.address%>"
+        allowfullscreen>
+      </iframe>
     </div>
   </div>
   
