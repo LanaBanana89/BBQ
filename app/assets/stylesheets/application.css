@@ -33,6 +33,11 @@
   margin-bottom: 20px;
 }
 
+.buffer-right-left {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
 /* Avatars for users & events */
 .img-icon, .img-icon-small {
   height: 50px;
@@ -62,4 +67,8 @@
 
 .field-password {
   margin-top: 10px;
+}
+
+.vertical-align-center {
+  vertical-align: middle;
 }

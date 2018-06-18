@@ -1,7 +1,12 @@
 <%# Паршал для вывода отдельной фотографии %>
-<div class="event-photo buffer-both">
-  <%= link_to image_tag(photo.photo.thumb.url), photo.photo.url %>
+<%# class: glyphicon glyphicon-trash%>
 
-  <%# Показываем не только фотку, но и юзаре, который её добавил %>
-  Добавил <%= render partial: 'users/user', object: photo.user %>
-</div>
+ <div class="event-photo buffer-both">
+     <% image_user = "Добавил #{render partial: 'users/user', object: photo.user} #{draw_delete_photo_basket?(@event, photo)}" %>   
+     <%= link_to image_tag(photo.photo.thumb.url), photo.photo.url, class: "col-sm-2 buffer-right-left buffer-top",
+     data: { title: image_user,
+            toggle: "lightbox",
+            gallery: "img-gallery" } %>       
+ </div>
+
+

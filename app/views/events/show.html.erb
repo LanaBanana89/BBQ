@@ -39,12 +39,14 @@
       <div class="event-photos">
         <%# Выводим все фотографии события %>
         <div class="event-photos-gallery">
-          <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo) %>
+          <div class="row">            
+            <%= render partial: 'photos/photo', collection: @event.photos.except(@new_photo)%>            
+          </div>
         </div>
 
         <%# Рисуем форму для добавления новой фотографии %>
-        <div class="event-photo-form">
-          <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>
+        <div class="event-photo-form">          
+            <%= render partial: 'photos/form', locals: {photo: @new_photo || @event.photos.build} %>          
         </div>
       </div>
 
@@ -84,11 +86,16 @@
         </div>
       <% end %>
       <!-- прикручиваем гугл карты -->
-      <iframe width="100%" height="250" frameborder="0" style="border:0"
+      <iframe width="100%" height="250" frameborder="0" style="border:0" 
         src="https://www.google.ru/maps/embed/v1/place?key=<%=Rails.application.secrets.secret_key_map%>&q=<%=@event.address%>"
-        allowfullscreen>
+        allowfullscreen class="buffer-top">
       </iframe>
+      <!--<div id="map" data-address=<%=@event.address%> style="width: 600px; height: 400px"></div>-->
     </div>
-  </div>
-  
+  </div>  
 </div>
+<!--
+<script>
+  show_on_map(<%=@event.address.to_json.html_safe %>)
+</script>
+-->
