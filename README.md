@@ -7,7 +7,7 @@
 Приложение позволяет просматривать события, подписываться на события других пользователей, создавать собственные события, загружать фотографии к событиям.
 
 ## Скриншот
-![](https://github.com/LanaBanana89/BBQ/tree/master/app/assets/images/Screenshot.png)
+![](https://github.com/LanaBanana89/BBQ/blob/master/app/assets/images/Screenshot.png)
 
 ## Запуск приложения
 1. Необходимо скачать либо клонировать репозиторий с приложением
